@@ -24,5 +24,8 @@ jobs:
         env:
           ACCOUNT: ${{ secrets.ACCOUNT }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          MAILSENDER: ${{ secrets.MAILSENDER }}
+          MAILRECEIVER: ${{ secrets.MAILRECEIVER }}
+          MAILPSWD: ${{ secrets.MAILPSWD }}
         run: |
-          python3 clock-in.py ${ACCOUNT} ${PASSWORD}
+          python3 clock-in.py ${ACCOUNT} ${PASSWORD} ${MAILSENDER} ${MAILRECEIVER} ${MAILPSWD}
