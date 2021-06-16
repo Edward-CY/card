@@ -199,13 +199,13 @@ def main(username, password, sender, recver, mailpswd):
         res = dk.post()
         if str(res['e']) == '0':
             print('已为您打卡成功！')
-            sendNotification(sender, recver, mailpswd, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+': 已为您打卡成功！')
+            sendNotification(sender, recver, mailpswd, 'success')
         else:
             print(res['m'])
-            sendNotification(sender, recver, mailpswd, res['m'])
+            sendNotification(sender, recver, mailpswd, 'failed')
     except Exception:
         print('数据提交失败')
-        sendNotification(sender, recver, mailpswd, '数据提交失败')
+        sendNotification(sender, recver, mailpswd, 'failed')
         raise Exception
 
 
